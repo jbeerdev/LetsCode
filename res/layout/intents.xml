@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#FFFFFF" android:orientation="vertical">
+	<Button android:id="@+id/llamar" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="Llamar" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/dial" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="DIAL" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/send" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="ENVIAR" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/mail" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="MAIL" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/web_search" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="BUSQUEDA WEB"
+		android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/web" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="WEB" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/geo" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="GEO PUNTO" android:gravity="center" android:layout_weight="1">
+	</Button>
+</LinearLayout>

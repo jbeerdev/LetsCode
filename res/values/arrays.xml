@@ -1,0 +1,10 @@
+<resources>
+	<string-array name="array_ciudades">
+		<item>Zaragoza</item>
+		<item>Madrid</item>
+		<item>Valencia</item>
+		<item>Pontevedra</item>
+		<item>Vigo</item>
+		<item>Barcelona</item>
+	</string-array>
+</resources>

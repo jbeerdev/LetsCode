@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:background="#FFFFFF" android:orientation="vertical"
+	android:gravity="center">
+	<Button android:id="@+id/flow" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="FLUJO DE ACTIVIDAD"
+		android:gravity="center" android:onClick="flowClickListener" android:layout_weight="1"></Button>
+	<Button android:id="@+id/forms" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="FORMULARIO"
+		android:gravity="center" android:onClick="formsClickListener" android:layout_weight="1"> 
+	</Button>
+	<Button android:id="@+id/custom" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="CUSTOM VIEW" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/persistencia" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="BASE DE DATOS"
+		android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/intents" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="INTENTS" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/preferencias" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="PREFERENCIAS"
+		android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/contacts" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="CONTACTOS" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/web_service" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="WEB SERVICE - SIN ASYNCTASK" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/web_service_back" android:layout_width="fill_parent"
+		android:layout_height="80px" android:text="WEB SERVICE - CON ASYNCTASK" android:gravity="center" android:layout_weight="1">
+	</Button>
+	<Button android:id="@+id/services" android:layout_width="fill_parent" android:onClick="servicesActivity"
+		android:layout_height="80px" android:text="SERVICES" android:gravity="center" android:layout_weight="1">
+	</Button>
+</LinearLayout>

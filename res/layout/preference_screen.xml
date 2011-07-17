@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	
+	<PreferenceCategory android:title="Segunda categoría">
+		<EditTextPreference android:name="EditText"
+			android:summary="Aqui puedes meter un texto" android:defaultValue="Vacio"
+			android:title="Edita este texto" android:key="editTextPref" />
+		<RingtonePreference android:name="Ringtone"
+			android:summary="Selecciona un tono" android:title="Tonos"
+			android:key="ringtonePref" />
+		<PreferenceScreen android:key="SecondPrefScreen"
+			android:title="Segunda pantalla de preferencias" android:summary="Esto es otra pantalla">
+			<EditTextPreference android:name="Otro EditText en otra pantalla"
+				android:summary="Esto es una preferencia en otra pantalla"
+				android:title="Edit text" android:key="SecondEditTextPref" />
+		</PreferenceScreen>
+		<Preference android:title="Personalizada"
+			android:summary="Esto es casi como un botón" android:key="customPref" />
+	</PreferenceCategory>
+</PreferenceScreen>

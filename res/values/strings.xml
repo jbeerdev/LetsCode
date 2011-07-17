@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, FormActivity!</string>
+	<string name="app_name">Let\'s Code!</string>
+	<string name="name">Nombre</string>
+	<string name="country_prompt">Elija país</string>
+	<string name="enviar">Enviar</string>
+	<string name="toast_help">Ayuda en Modo Toast</string>
+	<string name="save">Guardar</string>
+	<string name="preferences">Preferencias</string>
+</resources>

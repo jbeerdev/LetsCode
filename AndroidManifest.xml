@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="lets.code.project" android:versionCode="1"
+	android:versionName="1.0">
+	<uses-sdk android:minSdkVersion="7" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.CALL_PHONE" />
+	<uses-permission android:name="android.permission.READ_CONTACTS" />
+	
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+
+	<application android:icon="@drawable/icon" android:label="@string/app_name">
+		<activity android:name=".MainMenu">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".FormActivity"></activity>
+		<activity android:name=".CustomViewActivity"></activity>
+		<activity android:name=".ShowInfoActivity"></activity>
+		<activity android:name=".persistencia.PreferencesActivity"></activity>
+		<activity android:name=".persistencia.SaveDataActivity"></activity>
+		<activity android:name=".intents.IntentActivity"></activity>
+		<activity android:name=".FlowActivity"></activity>
+		<activity android:name=".persistencia.ContactsActivity"></activity>
+		<activity android:name=".conectividad.WebServiceActivity"></activity>
+		<activity android:name=".background.WebServiceBackgroundActivity"></activity>
+		<activity android:name=".background.ServiceActivity"></activity>
+
+
+		<service android:enabled="true" android:name=".background.MyService" />
+
+
+		<receiver android:name=".receivers.Receiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="android.intent.action.PHONE_STATE"></action>
+				<action android:name="lets.code.intent.action.NOW"></action>
+			</intent-filter>
+		</receiver>
+
+	</application>
+</manifest>
