@@ -21,15 +21,14 @@ import android.widget.Toast;
 
 public class SaveDataActivity extends Activity {
 	
-	DataBaseExample mDbHelper;
+	TableManager mDbHelper;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.input_form);
-		mDbHelper = new DataBaseExample(this);
-        mDbHelper.open();
+		mDbHelper = new TableManager(this);
         
         ((Button)findViewById(R.id.save)).setOnClickListener(saveClickListener);
 
