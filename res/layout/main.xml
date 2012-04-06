@@ -9,45 +9,82 @@
   Compartir bajo la misma licencia — Si altera o transforma esta obra, o genera una obra derivada, sólo puede distribuir la obra generada bajo una licencia idéntica a ésta.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:background="#FFFFFF" android:gravity="top">
-	<ImageView android:id="@+id/banner" android:src="@drawable/bright_hub"
-		android:layout_height="wrap_content" android:layout_width="200px"
-		android:layout_alignParentTop="true" android:layout_centerHorizontal="true"></ImageView>
-	<EditText android:layout_alignParentLeft="true" android:id="@+id/nameInput"
-		android:layout_below="@id/banner" android:layout_height="wrap_content"
-		android:layout_marginTop="20px" android:layout_marginLeft="5px"
-		android:layout_width="250px" android:digits="0987654321"></EditText>
-	<TextView android:id="@+id/nameLabel"
-		android:layout_marginLeft="10px" android:layout_toRightOf="@id/nameInput"
-		android:layout_marginTop="30px" android:layout_alignParentRight="true"
-		android:text="@string/name" android:layout_below="@id/banner"
-		android:layout_height="wrap_content" android:layout_width="wrap_content"
-		android:textColor="@color/black"></TextView>
-	
-	
-	<Spinner android:id="@+id/spinner" android:layout_width="fill_parent"
-		android:layout_height="wrap_content" android:prompt="@string/country_prompt"
-		android:layout_below="@id/nameInput" android:layout_centerHorizontal="true"
-		android:layout_marginTop="10px" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:gravity="top" >
 
-	
-	
-	<RadioGroup android:id="@+id/radio" android:layout_width="fill_parent"
-		android:layout_below="@id/spinner" android:layout_height="wrap_content"
-		android:orientation="vertical">
-		<RadioButton android:id="@+id/radio_hombre"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:text="Hombre" android:textColor="@color/black" />
-		<RadioButton android:id="@+id/radio_mujer"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:text="Mujer"  android:textColor="@color/black"/>
-	</RadioGroup>
-	
-	
-	
-	<Button android:id="@+id/button" android:layout_width="200px"
-		android:text="@string/enviar" android:layout_height="wrap_content"
-		android:padding="10dp" android:layout_below="@id/radio" 
-		android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bright_hub" >
+    </ImageView>
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="250px"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/banner"
+        android:layout_marginLeft="5px"
+        android:layout_marginTop="20px"
+        android:digits="0987654321" >
+    </EditText>
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/banner"
+        android:layout_marginLeft="10px"
+        android:layout_marginTop="30px"
+        android:layout_toRightOf="@id/nameInput"
+        android:text="@string/name"
+        android:textColor="@color/black" >
+    </TextView>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10px"
+        android:prompt="@string/country_prompt" />
+
+    <RadioGroup
+        android:id="@+id/radio"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/radio_hombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hombre"
+            android:textColor="@color/black" />
+
+        <RadioButton
+            android:id="@+id/radio_mujer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mujer"
+            android:textColor="@color/black" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="200px"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radio"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="@string/enviar" />
+
 </RelativeLayout>

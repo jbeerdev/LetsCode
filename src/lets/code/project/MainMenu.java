@@ -11,6 +11,7 @@ package lets.code.project;
 
 import lets.code.project.background.ServiceActivity;
 import lets.code.project.background.WebServiceBackgroundActivity;
+import lets.code.project.conectividad.ConectivityMenu;
 import lets.code.project.conectividad.MyWifiManager;
 import lets.code.project.conectividad.WebServiceActivity;
 import lets.code.project.intents.IntentActivity;
@@ -124,7 +125,12 @@ public class MainMenu extends Activity {
 			startActivity(intent);
 		}
 	};
+	
 
+	public void conectivityActivity(View v) {
+		Intent intent = new Intent(MainMenu.this,ConectivityMenu.class);
+		startActivity(intent);
+	}
 
 	public void servicesActivity(View v) {
 		Intent intent = new Intent(MainMenu.this,ServiceActivity.class);

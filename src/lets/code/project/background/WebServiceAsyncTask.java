@@ -17,6 +17,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+
 import lets.code.project.base.Alertas;
 import lets.code.project.conectividad.BasicWebService;
 import android.os.AsyncTask;
@@ -43,9 +44,9 @@ public class WebServiceAsyncTask extends AsyncTask<Object, Boolean, String> {
 	protected void onPostExecute(String response) {
 		try
 		{
-			Type collectionType = new TypeToken<List<Alertas>>(){}.getType();
-			List<Alertas> alertas = new Gson().fromJson(response, collectionType);
-			callerActivity.populateListWithAlerts(alertas);
+//			Type collectionType = new TypeToken<List<Alertas>>(){}.getType();
+//			List<Alertas> alertas = new Gson().fromJson(response, collectionType);
+		callerActivity.printResult(response);
 		}
 		catch(Exception e)
 		{
@@ -57,6 +58,11 @@ public class WebServiceAsyncTask extends AsyncTask<Object, Boolean, String> {
 	@Override
 	protected void onPreExecute() {
 		super.onPreExecute();
+	}
+	
+	@Override
+	protected void onProgressUpdate(Boolean... values) {
+		super.onProgressUpdate(values);
 	}
 	
 	

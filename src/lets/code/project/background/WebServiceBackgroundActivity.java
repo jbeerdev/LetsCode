@@ -18,16 +18,19 @@ import lets.code.project.base.AlertasAdapter;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.TextView;
 
 public class WebServiceBackgroundActivity extends ListActivity{
 
-	private static final String WEB_SERVICE_URL = "http://www.sumasoftware.com/alerts/GetAlerts.php";
+	private static final String WEB_SERVICE_URL = "http://barrapunto.com/index.xml";
 	ProgressDialog dialog;
+	TextView rssText;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.alertas_list);
+		rssText = (TextView) findViewById(R.id.rss_text);
 		initializeDialog();
 		startWebServiceTask();
 		
@@ -46,6 +49,11 @@ public class WebServiceBackgroundActivity extends ListActivity{
 	public void populateListWithAlerts(List<Alertas> alertList){
 		AlertasAdapter ad = new AlertasAdapter(this, alertList);
 		this.setListAdapter(ad);	
+		dialog.dismiss();
+	}
+	
+	public void printResult(String result){
+		rssText.setText(result);
 		dialog.dismiss();
 	}
 

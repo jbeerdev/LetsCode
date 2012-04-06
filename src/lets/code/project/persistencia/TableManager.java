@@ -38,8 +38,6 @@ public class TableManager {
 
 	private final Context mCtx;
 
-	
-
 
 	public TableManager(Context ctx) {
 		this.mCtx = ctx;
@@ -51,6 +49,8 @@ public class TableManager {
 	public void close() {
 		mDbHelper.close();
 	}
+	
+
 
 	public long createAlumno(String title) {
 		ContentValues initialValues = new ContentValues();

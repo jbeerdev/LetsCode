@@ -26,38 +26,37 @@ import android.util.Log;
 public class StorageClass {
 
 
-	public static void saveInternalFile(String fileName, Context context){
-		String string = "hello world!";
-
-		FileOutputStream fos;
+	public static void saveInternalFile(String file, Context context){
+		String fileName = "file.txt";
+		String string = "hello crf!";
+		FileOutputStream fileOutputStream;
 		try {
-			fos = context.openFileOutput(fileName, Context.MODE_APPEND);
-			fos.write(string.getBytes());
-			fos.close();
+			fileOutputStream = context.openFileOutput(fileName, Context.MODE_APPEND);
+			fileOutputStream.write(string.getBytes());
+			fileOutputStream.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public static String getInternalFile(String fileName, Context context){
-		String string = "";
-
-		FileInputStream fin;
+	public static String getInternalFile(String file, Context context){
+		String result = "";
+		String fileName = "file.txt";
+		FileInputStream fileInputStream;
 		try {
-			fin = context.openFileInput(fileName);
-			byte [] InBuf = new byte[fin.available()];
-			fin.read(InBuf); 
-			string = new String(InBuf);
+			fileInputStream = context.openFileInput(fileName);
+			byte [] InBuf = new byte[fileInputStream.available()];
+			fileInputStream.read(InBuf); 
+			result = new String(InBuf);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return string;
+		return result;
 
 	}
 
@@ -80,14 +79,15 @@ public class StorageClass {
 	
 	public static void createExternalStoragePrivateFile(Context context) {
 	    File file = new File("/mnt/sdcard", "androidIcon.png");
+	    File otherWayFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_MUSIC),"androidIcon.png");
 	    try {
-	        InputStream is = context.getResources().openRawResource(R.drawable.icon);
-	        OutputStream os = new FileOutputStream(file);
-	        byte[] data = new byte[is.available()];
-	        is.read(data);
-	        os.write(data);
-	        is.close();
-	        os.close();
+	        InputStream inputStream = context.getResources().openRawResource(R.drawable.icon);
+	        OutputStream outputStream = new FileOutputStream(file);
+	        byte[] data = new byte[inputStream.available()];
+	        inputStream.read(data);
+	        outputStream.write(data);
+	        inputStream.close();
+	        outputStream.close();
 	    } catch (IOException e) {
 	        Log.w("ExternalStorage", "Error writing " + file, e);
 	    }

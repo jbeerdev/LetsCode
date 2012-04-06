@@ -45,4 +45,7 @@
 	<Button android:id="@+id/services" android:layout_width="fill_parent" android:onClick="servicesActivity"
 		android:layout_height="80px" android:text="SERVICES" android:gravity="center" android:layout_weight="1">
 	</Button>
+	<Button android:id="@+id/conectivity" android:layout_width="fill_parent" android:onClick="conectivityActivity"
+		android:layout_height="80px" android:text="CONECTIVITY" android:gravity="center" android:layout_weight="1">
+	</Button>
 </LinearLayout>

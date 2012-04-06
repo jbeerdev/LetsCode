@@ -36,6 +36,7 @@ public class ServiceActivity extends Activity{
 	public void stopService(View view){
 		Log.d(TAG, "onClick: stopping Service");
 		stopService(new Intent(this, MyService.class));
+	
 	}
 
 }

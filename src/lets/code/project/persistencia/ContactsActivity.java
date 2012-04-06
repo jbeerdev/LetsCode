@@ -9,6 +9,10 @@
  ******************************************************************************/
 package lets.code.project.persistencia;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import lets.code.project.R;
 import android.app.ListActivity;
 import android.database.Cursor;
@@ -17,7 +21,9 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -38,6 +44,30 @@ public class ContactsActivity extends ListActivity {
 		int[] to = new int[] { R.id.name_entry, R.id.number_entry};
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.contact, cursor, from, to);
 		this.setListAdapter(adapter);
+		
+//		String[] from = new String[] {"display_name", "data1"};
+//		int[] to = new int[] { R.id.name_entry, R.id.number_entry};
+//		
+//		List<HashMap<String, String>> dataMap = new ArrayList<HashMap<String, String>>();
+//		
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		map.put("display_name", "Jose Cortés");
+//		map.put("data1","555444333");
+//		
+//		HashMap<String, String> map1 = new HashMap<String, String>();
+//		map1.put("display_name", "Roberto Brenlla");
+//		map1.put("data1","3322244411");
+//		
+//		HashMap<String, String> map2 = new HashMap<String, String>();
+//		map2.put("display_name", "Alberto Gimenez");
+//		map2.put("data1","9998887733");
+//		
+//		dataMap.add(map);
+//		dataMap.add(map2);
+//		dataMap.add(map1);
+//		
+//		SimpleAdapter simpleAdapter = new SimpleAdapter(this, dataMap, R.layout.contact, from, to);
+//		this.setListAdapter(simpleAdapter);
 	}
 
 	@Override
@@ -47,4 +77,3 @@ public class ContactsActivity extends ListActivity {
 		Toast.makeText(getBaseContext(),  c.getString(c.getColumnIndex(Phone.DISPLAY_NAME)), Toast.LENGTH_LONG).show();
 	}
 }
-

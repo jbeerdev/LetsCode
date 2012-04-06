@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 public class WebServiceActivity extends ListActivity{
 
@@ -34,25 +35,26 @@ public class WebServiceActivity extends ListActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.alertas_list);
 
-		WebService webService = new WebService("http://www.sumasoftware.com/alerts/GetAlerts.php");
+		WebService webService = new WebService("http://barrapunto.com/index.xml");
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("var", "");
 
 		String response = webService.webGet("", params);
-
-		try
-		{
-			Type collectionType = new TypeToken<List<Alertas>>(){}.getType();
-			List<Alertas> alertas = new Gson().fromJson(response, collectionType);
-
-			AlertasAdapter ad = new AlertasAdapter(this, alertas);
-			this.setListAdapter(ad);		
-
-		}
-		catch(Exception e)
-		{
-			Log.d("Error: ", e.getMessage());
-		}
+		TextView rssText = (TextView) findViewById(R.id.rss_text);
+		rssText.setText(response);
+//		try
+//		{
+//			Type collectionType = new TypeToken<List<Alertas>>(){}.getType();
+//			List<Alertas> alertas = new Gson().fromJson(response, collectionType);
+//
+//			AlertasAdapter ad = new AlertasAdapter(this, alertas);
+//			this.setListAdapter(ad);		
+//
+//		}
+//		catch(Exception e)
+//		{
+//			Log.d("Error: ", e.getMessage());
+//		}
 	}
 
 }
