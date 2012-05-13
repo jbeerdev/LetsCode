@@ -44,11 +44,10 @@
 		<activity android:name=".conectividad.NetworkConectivityActivity"></activity>
 		<activity android:name=".background.WebServiceBackgroundActivity"></activity>
 		<activity android:name=".background.ServiceActivity"></activity>
-
-
+		<activity android:name=".multimedia.CameraIntent"></activity>
+		
 		<service android:enabled="true" android:name=".background.MyService" />
-
-
+		
 		<receiver android:name=".receivers.Receiver" android:enabled="true">
 			<intent-filter>
 				<action android:name="android.intent.action.PHONE_STATE"></action>

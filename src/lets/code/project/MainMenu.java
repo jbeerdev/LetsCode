@@ -15,6 +15,7 @@ import lets.code.project.conectividad.ConectivityMenu;
 import lets.code.project.conectividad.MyWifiManager;
 import lets.code.project.conectividad.WebServiceActivity;
 import lets.code.project.intents.IntentActivity;
+import lets.code.project.multimedia.CameraIntent;
 import lets.code.project.persistencia.ContactsActivity;
 import lets.code.project.persistencia.PreferencesActivity;
 import lets.code.project.persistencia.SaveDataActivity;
@@ -39,10 +40,10 @@ public class MainMenu extends Activity {
 		findViewById(R.id.web_service).setOnClickListener(webServiceClickListener);
 		findViewById(R.id.web_service_back).setOnClickListener(webServiceBackgroundClickListener);
 		findViewById(R.id.custom).setOnClickListener(customViewClickListener);
-		
+
 		MyWifiManager.startWifiManager(this);
-		
-		
+
+
 	}
 
 	OnClickListener contactsClickListener = new OnClickListener() {
@@ -125,7 +126,7 @@ public class MainMenu extends Activity {
 			startActivity(intent);
 		}
 	};
-	
+
 
 	public void conectivityActivity(View v) {
 		Intent intent = new Intent(MainMenu.this,ConectivityMenu.class);
@@ -134,6 +135,11 @@ public class MainMenu extends Activity {
 
 	public void servicesActivity(View v) {
 		Intent intent = new Intent(MainMenu.this,ServiceActivity.class);
+		startActivity(intent);
+	}
+	
+	public void camaraIntent(View v) {
+		Intent intent = new Intent(MainMenu.this,CameraIntent.class);
 		startActivity(intent);
 	}
 
