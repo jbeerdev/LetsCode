@@ -16,6 +16,7 @@ import java.util.List;
 import lets.code.project.R;
 import android.app.ListActivity;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
@@ -35,39 +36,49 @@ public class ContactsActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact_list);
 		String filter = Phone.DISPLAY_NAME + " LIKE '%Jose%' "; //POSIBLE FILTRO A USAR
-		Cursor cursor = getContentResolver().query(
-				ContactsContract.CommonDataKinds.Phone.CONTENT_URI, 
-				new String[] {Phone._ID, Phone.DISPLAY_NAME, Phone.NUMBER}, 
-				null, null, Phone.DISPLAY_NAME);
+
+		Uri AlarmUri = Uri.parse("content://com.android.deskclock/alarm");
+
+		String[] ALARM_QUERY_COLUMNS = new String[] {"_id", "hour", "minutes", "days_of_week",
+				"alarm_time", "enabled", "vibrate", "message", "alert"};
+		String[] AlarmFields = new String[] {"hour", "minutes",  "message", "alert"};              
+		Cursor cursor = getContentResolver().query(AlarmUri, AlarmFields, null, null, null);
+		
+		while(cursor.moveToNext()){
+			
+			System.out.println("ID"+cursor.getString(cursor.getColumnIndex("_id")));
+			
+		}
+		
 		startManagingCursor(cursor);
 		String[] from = new String[] { Phone.DISPLAY_NAME, Phone.NUMBER};
 		int[] to = new int[] { R.id.name_entry, R.id.number_entry};
 		SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.contact, cursor, from, to);
 		this.setListAdapter(adapter);
-		
-//		String[] from = new String[] {"display_name", "data1"};
-//		int[] to = new int[] { R.id.name_entry, R.id.number_entry};
-//		
-//		List<HashMap<String, String>> dataMap = new ArrayList<HashMap<String, String>>();
-//		
-//		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("display_name", "Jose Cortés");
-//		map.put("data1","555444333");
-//		
-//		HashMap<String, String> map1 = new HashMap<String, String>();
-//		map1.put("display_name", "Roberto Brenlla");
-//		map1.put("data1","3322244411");
-//		
-//		HashMap<String, String> map2 = new HashMap<String, String>();
-//		map2.put("display_name", "Alberto Gimenez");
-//		map2.put("data1","9998887733");
-//		
-//		dataMap.add(map);
-//		dataMap.add(map2);
-//		dataMap.add(map1);
-//		
-//		SimpleAdapter simpleAdapter = new SimpleAdapter(this, dataMap, R.layout.contact, from, to);
-//		this.setListAdapter(simpleAdapter);
+
+		//		String[] from = new String[] {"display_name", "data1"};
+		//		int[] to = new int[] { R.id.name_entry, R.id.number_entry};
+		//		
+		//		List<HashMap<String, String>> dataMap = new ArrayList<HashMap<String, String>>();
+		//		
+		//		HashMap<String, String> map = new HashMap<String, String>();
+		//		map.put("display_name", "Jose Cortés");
+		//		map.put("data1","555444333");
+		//		
+		//		HashMap<String, String> map1 = new HashMap<String, String>();
+		//		map1.put("display_name", "Roberto Brenlla");
+		//		map1.put("data1","3322244411");
+		//		
+		//		HashMap<String, String> map2 = new HashMap<String, String>();
+		//		map2.put("display_name", "Alberto Gimenez");
+		//		map2.put("data1","9998887733");
+		//		
+		//		dataMap.add(map);
+		//		dataMap.add(map2);
+		//		dataMap.add(map1);
+		//		
+		//		SimpleAdapter simpleAdapter = new SimpleAdapter(this, dataMap, R.layout.contact, from, to);
+		//		this.setListAdapter(simpleAdapter);
 	}
 
 	@Override

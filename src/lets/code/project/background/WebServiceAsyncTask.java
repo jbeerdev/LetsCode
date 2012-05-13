@@ -34,9 +34,9 @@ public class WebServiceAsyncTask extends AsyncTask<Object, Boolean, String> {
 		String serviceUrl = (String) params[0];
 		callerActivity = (WebServiceBackgroundActivity) params[1];
 		
-		BasicWebService webService = new BasicWebService(serviceUrl);
+		BasicWebService webService = new BasicWebService("http://www.dndzgz.com/fetch");
 		Map<String, String> serviceParams = new HashMap<String, String>();
-		serviceParams.put("var", "");	
+		serviceParams.put("service", "bizi");	
 		return webService.webGet("", serviceParams);
 	}
 

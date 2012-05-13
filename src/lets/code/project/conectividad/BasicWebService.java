@@ -10,33 +10,28 @@
 package lets.code.project.conectividad;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.params.ClientPNames;
-import org.apache.http.client.params.CookiePolicy;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.util.Log;
-
-import com.google.gson.Gson;
 
 public class BasicWebService{
 
@@ -59,7 +54,7 @@ public class BasicWebService{
 		webServiceUrl = serviceName;
 
 	}
-	
+
 	public String webGet(String methodName, Map<String, String> params) {
 		String getUrl = webServiceUrl + methodName;
 
@@ -69,6 +64,7 @@ public class BasicWebService{
 		Log.e("WebGetURL: ",getUrl);
 		try {
 			response = httpClient.execute(httpGet);
+			System.out.println("STATUS RESPONSE "+response.getStatusLine().getStatusCode());
 			returnedValue = EntityUtils.toString(response.getEntity());
 		} catch (IOException e) {
 			Log.e("WebService:", " Messaje " +  e.getMessage());
@@ -93,12 +89,28 @@ public class BasicWebService{
 			try {
 				getUrl += param.getKey() + "=" + URLEncoder.encode(param.getValue(),"UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 			i++;
 		}
 		return getUrl;
 	}
+
+	public void postData() {
+		httpPost = new HttpPost(webServiceUrl);
+		try {
+			List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+			nameValuePairs.add(new BasicNameValuePair("id", "1"));
+			nameValuePairs.add(new BasicNameValuePair("name", "crf"));
+			nameValuePairs.add(new BasicNameValuePair("course", "android"));
+			httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+			httpClient.execute(httpPost);
+
+		} catch (ClientProtocolException e) {
+			Log.e("WebService:", " ClientProtocolException " +  e.getMessage());
+		} catch (IOException e) {
+			Log.e("WebService:", " IOException " +  e.getMessage());
+		}
+	} 
+
 }

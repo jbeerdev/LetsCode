@@ -3,6 +3,7 @@ package lets.code.project.conectividad;
 import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
 public class NetworkConectivityActivity extends Activity{
@@ -16,7 +17,12 @@ public class NetworkConectivityActivity extends Activity{
 		
 		conectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
 		
-		System.out.println("NetworkStatus"+conectivityManager.getActiveNetworkInfo().toString());
+		NetworkInfo[] arrayNetwork = conectivityManager.getAllNetworkInfo();
+		
+		for(NetworkInfo network : arrayNetwork){
+			System.out.println("NetworkStatus"+network.toString());
+		}
+		
 		
 		
 		
