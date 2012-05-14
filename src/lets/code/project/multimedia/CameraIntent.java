@@ -12,16 +12,12 @@ public class CameraIntent extends Activity{
 
 	private static final int TAKE_PHOTO_REQUEST_CODE = 100;
 
-
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 		startActivityForResult(intent, TAKE_PHOTO_REQUEST_CODE);
 	}
-
-
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -34,7 +30,5 @@ public class CameraIntent extends Activity{
 			} 
 			finish();
 		}
-
 	}
-
 }

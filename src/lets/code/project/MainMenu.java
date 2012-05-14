@@ -15,6 +15,7 @@ import lets.code.project.conectividad.ConectivityMenu;
 import lets.code.project.conectividad.MyWifiManager;
 import lets.code.project.conectividad.WebServiceActivity;
 import lets.code.project.intents.IntentActivity;
+import lets.code.project.multimedia.CameraView;
 import lets.code.project.multimedia.CameraIntent;
 import lets.code.project.persistencia.ContactsActivity;
 import lets.code.project.persistencia.PreferencesActivity;
@@ -140,6 +141,11 @@ public class MainMenu extends Activity {
 	
 	public void camaraIntent(View v) {
 		Intent intent = new Intent(MainMenu.this,CameraIntent.class);
+		startActivity(intent);
+	}
+	
+	public void camaraView(View v) {
+		Intent intent = new Intent(MainMenu.this,CameraView.class);
 		startActivity(intent);
 	}
 

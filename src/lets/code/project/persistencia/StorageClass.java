@@ -9,6 +9,7 @@
  ******************************************************************************/
 package lets.code.project.persistencia;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -20,6 +21,9 @@ import java.io.OutputStream;
 import lets.code.project.R;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.util.Log;
 
@@ -76,23 +80,47 @@ public class StorageClass {
 		}
 
 	}
-	
+
 	public static void createExternalStoragePrivateFile(Context context) {
-	    File file = new File("/mnt/sdcard", "androidIcon.png");
-	    File otherWayFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_MUSIC),"androidIcon.png");
-	    try {
-	        InputStream inputStream = context.getResources().openRawResource(R.drawable.icon);
-	        OutputStream outputStream = new FileOutputStream(file);
-	        byte[] data = new byte[inputStream.available()];
-	        inputStream.read(data);
-	        outputStream.write(data);
-	        inputStream.close();
-	        outputStream.close();
-	    } catch (IOException e) {
-	        Log.w("ExternalStorage", "Error writing " + file, e);
-	    }
+		File file = new File("/mnt/sdcard", "androidIcon.png");
+		File otherWayFile = new File(context.getExternalFilesDir(Environment.DIRECTORY_MUSIC),"androidIcon.png");
+		try {
+			InputStream inputStream = context.getResources().openRawResource(R.drawable.icon);
+			OutputStream outputStream = new FileOutputStream(file);
+			byte[] data = new byte[inputStream.available()];
+			inputStream.read(data);
+			outputStream.write(data);
+			inputStream.close();
+			outputStream.close();
+		} catch (IOException e) {
+			Log.w("ExternalStorage", "Error writing " + file, e);
+		}
 	}
 
-	
+	public static boolean StoreByteImage(Context mContext, byte[] imageData,int quality, String expName) {
+		File sdImageMainDirectory = new File("/sdcard/myImages");
+		FileOutputStream fileOutputStream = null;
+		try {
+			BitmapFactory.Options options=new BitmapFactory.Options();
+			options.inSampleSize = 5;
+			Bitmap myImage = BitmapFactory.decodeByteArray(imageData, 0,
+					imageData.length,options);
+			fileOutputStream = new FileOutputStream(
+					sdImageMainDirectory.toString() +"/" + expName + ".jpg");
+			BufferedOutputStream bos = new BufferedOutputStream(
+					fileOutputStream);
+			myImage.compress(CompressFormat.JPEG, quality, bos);
+			bos.flush();
+			bos.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+
 
 }

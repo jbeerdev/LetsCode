@@ -127,5 +127,15 @@
         android:onClick="camaraIntent"
         android:text="CAMARA INTENT" >
     </Button>
+    
+     <Button
+        android:id="@+id/camara_view"
+        android:layout_width="fill_parent"
+        android:layout_height="80px"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:onClick="camaraView"
+        android:text="CAMARA VIEW" >
+    </Button>
 
 </LinearLayout>
