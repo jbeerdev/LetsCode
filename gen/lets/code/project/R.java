@@ -114,6 +114,7 @@ containing a value of this type.
         public static final int country_prompt=0x7f070003;
         public static final int enviar=0x7f070004;
         public static final int hello=0x7f070000;
+        public static final int iconos=0x7f070008;
         public static final int name=0x7f070002;
         public static final int preferences=0x7f070007;
         public static final int save=0x7f070006;
