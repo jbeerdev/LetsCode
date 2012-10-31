@@ -49,11 +49,13 @@ containing a value of this type.
         public static final int alert_text=0x7f090000;
         public static final int banner=0x7f090011;
         public static final int button=0x7f090018;
-        public static final int buttonStart=0x7f090023;
-        public static final int buttonStop=0x7f090024;
+        public static final int buttonStart=0x7f090025;
+        public static final int buttonStop=0x7f090026;
+        public static final int camara_intent=0x7f090023;
+        public static final int camara_view=0x7f090024;
         public static final int conectivity=0x7f090005;
         public static final int contacts=0x7f09001f;
-        public static final int countryLabel=0x7f090025;
+        public static final int countryLabel=0x7f090027;
         public static final int crf_logo=0x7f090002;
         public static final int custom=0x7f09001b;
         public static final int dial=0x7f09000b;
@@ -79,8 +81,9 @@ containing a value of this type.
         public static final int save=0x7f090009;
         public static final int send=0x7f09000c;
         public static final int services=0x7f090022;
-        public static final int sexLabel=0x7f090026;
+        public static final int sexLabel=0x7f090028;
         public static final int spinner=0x7f090014;
+        public static final int surface_camera=0x7f090029;
         public static final int web=0x7f09000f;
         public static final int web_search=0x7f09000e;
         public static final int web_service=0x7f090020;
@@ -101,6 +104,7 @@ containing a value of this type.
         public static final int preference_screen=0x7f03000b;
         public static final int service_layout=0x7f03000c;
         public static final int show_info=0x7f03000d;
+        public static final int surface_camera=0x7f03000e;
     }
     public static final class raw {
         public static final int music1=0x7f040000;
